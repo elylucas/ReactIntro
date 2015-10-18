@@ -22,7 +22,7 @@ var config = {
         js: './src/**/*.js',
         jsx: './src/**/*.jsx',
         dist: './dist',
-        mainJs: './src/app.js'
+        mainJs: './src/app.jsx'
     }
 };
 
