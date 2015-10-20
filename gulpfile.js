@@ -39,7 +39,7 @@ gulp.task('js', function(){
     return browserify(config.paths.mainJs)
         .transform(babelify)
         .bundle()
-        .on('error', console.error.bind(console))
+        .on('error', handleErrors)
         .pipe(source('bundle.js'))
         .pipe(buffer())
         .pipe(sourcemaps.init({ loadMaps: true }))
@@ -74,4 +74,9 @@ gulp.task('watch', function(){
 
 gulp.task('dev', ['html', 'js', 'css', 'images', 'server', 'watch']);
 
+
+function handleErrors(err){
+    console.log(err);
+    this.emit('end');
+}
 
